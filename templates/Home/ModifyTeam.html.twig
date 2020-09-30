@@ -1,9 +1,20 @@
 {% extends "Home/home.html.twig" %}
 
 {% block body %}
-    Old name : {{ teams.title }}
-    {{ form_start(formTeam) }}
-    <button type="submit" class="btn btn-primary">Modify your team</button>
-    {{ form_end(formTeam) }}
+    <div style="text-align: center">
+        ----------------------  Form   ---------------------
+        <br /><br />
 
+        Old name : {{ teams.title }}
+        {{ form_start(formTeam) }}
+            {{ form_row(formTeam.title) }}
+            {{ form_row(formTeam.avatar) }}
+        <button type="submit" class="btn btn-primary">Modify your team</button>
+        {{ form_end(formTeam) }}
+
+        <img src="{{ teams.avatar }}">
+
+        <br /><br />
+        ----------------------------------------------------
+    </div>
 {% endblock %}
