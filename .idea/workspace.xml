@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5525173-072a-4f2b-a893-c84c77bbb863" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/Home/team.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Home/ModifyTeam.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/ModifyTeam.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Home/blocks.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/blocks.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +166,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601454541696</updated>
-      <workItem from="1601454545674" duration="17908000" />
+      <workItem from="1601454545674" duration="21667000" />
     </task>
     <servers />
   </component>

@@ -114,4 +114,24 @@ class DefaultController extends AbstractController
         return new Response($display);
 
     }
+
+    /**
+     * @param int $id
+     * @Route ("/Team-{id}", name="team_sheet")
+     */
+
+    public function teamSheet(int $id){
+
+        $em = $this->entityManager->getRepository(Teams::class);
+        $team = $em->findOneById($id);
+
+        $display = $this->twig->render('Home/team.html.twig', [
+            'team' => $team
+        ]);
+        return new Response($display);
+
+
+    }
+
+
 }

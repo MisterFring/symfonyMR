@@ -6,8 +6,8 @@
         <br /><br />
 
         {{ form_start(formTeam) }}
-            {{ form_row(formTeam.title) }}
-            {{ form_row(formTeam.avatar) }}
+            <p>{{ form_row(formTeam.title) }}</p>
+            <p>{{ form_row(formTeam.avatar) }}</p>
         <button type="submit" class="btn btn-primary">Ajouter une équipe</button>
         {{ form_end(formTeam) }}
 
@@ -17,16 +17,22 @@
 {% endblock %}
 
 {% block list %}
-    <div style="display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;">
+    <div style="
+        display: flex;
+	    text-align: center;
+	    flex-wrap: wrap;"
+    >
     {% for team in teams %}
 
-            <div style="flex-basis: 40%; justify-content: space-between">
-                <h2>{{ team.title }}</h2>
-                {% if (team.avatar != null) %}
-                    <img src="{{ team.avatar }}">
-                {% endif %}
+            <div style="flex-basis: 20%;">
+
+                <a href="{{ path('team_sheet', {'id' : team.id} )}}" style="text-decoration: none">
+                    <h2>{{ team.title }}</h2>
+                    {% if (team.avatar != null) %}
+                        <img src="{{ team.avatar }}">
+                    {% endif %}
+                </a>
+
                 <div>
                     <a href="{{ path('delete_team', {'id' : team.id}) }}">
                         <button type="submit" >Delete</button>
@@ -38,4 +44,8 @@
             </div>
     {% endfor %}
     </div>
+{% endblock %}
+
+{% block sheet %}
+    <h1>{{ title }}</h1>
 {% endblock %}

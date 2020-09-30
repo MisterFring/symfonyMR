@@ -7,8 +7,8 @@
 
         Old name : {{ teams.title }}
         {{ form_start(formTeam) }}
-            {{ form_row(formTeam.title) }}
-            {{ form_row(formTeam.avatar) }}
+        <p>{{ form_row(formTeam.title) }}</p>
+        <p>{{ form_row(formTeam.avatar) }}</p>
         <button type="submit" class="btn btn-primary">Modify your team</button>
         {{ form_end(formTeam) }}
 
