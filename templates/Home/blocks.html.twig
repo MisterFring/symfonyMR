@@ -1,15 +1,31 @@
 {% extends "Home/home.html.twig" %}
 
-{% block body %}
+{% block form %}
     <div style="text-align: center">
         ----------------------  Form   ---------------------
         <br /><br />
 
+        {% if modify is defined %}
+            Old name : {{ teams.title }}
+        {% endif %}
         {{ form_start(formTeam) }}
             <p>{{ form_row(formTeam.title) }}</p>
             <p>{{ form_row(formTeam.avatar) }}</p>
-        <button type="submit" class="btn btn-primary">Ajouter une équipe</button>
+
+            <button type="submit" class="btn btn-primary">
+                {% if modify is defined %}
+                Modify your team
+                {% else %}
+                Create your team
+                {% endif %}
+            </button>
+
+            {% if modify is defined%}
+                <p><img src="{{ teams.avatar }}"></p>
+            {% endif %}
         {{ form_end(formTeam) }}
+
+
 
         <br /><br />
         ----------------------------------------------------

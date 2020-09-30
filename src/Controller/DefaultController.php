@@ -107,9 +107,10 @@ class DefaultController extends AbstractController
 
         }
 
-        $display = $this->twig->render('Home/ModifyTeam.html.twig', [
+        $display = $this->twig->render('Home/blocks.html.twig', [
             'formTeam' => $form->createView(),
-            'teams' => $team
+            'teams' => $team,
+            'modify' => true
         ]);
         return new Response($display);
 

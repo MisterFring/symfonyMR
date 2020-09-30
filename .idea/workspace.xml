@@ -20,11 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5525173-072a-4f2b-a893-c84c77bbb863" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/Home/team.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/GitlabController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfonyMR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfonyMR.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Home/ModifyTeam.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/ModifyTeam.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Teams.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Teams.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Home/ModifyTeam.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Home/blocks.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/blocks.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Home/team.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/team.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +150,21 @@
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/m4tthumphrey/php-gitlab-api" />
+      <path value="$PROJECT_DIR$/vendor/php-http/multipart-stream-builder" />
+      <path value="$PROJECT_DIR$/vendor/php-http/client-common" />
+      <path value="$PROJECT_DIR$/vendor/php-http/discovery" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message" />
+      <path value="$PROJECT_DIR$/vendor/php-http/cache-plugin" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/nyholm/psr7" />
+      <path value="$PROJECT_DIR$/vendor/clue/stream-filter" />
+      <path value="$PROJECT_DIR$/vendor/zeichen32/gitlabapibundle" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iDuZCkneJ54Th5tl88HtonDVC2" />
@@ -166,7 +191,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601454541696</updated>
-      <workItem from="1601454545674" duration="21667000" />
+      <workItem from="1601454545674" duration="25960000" />
     </task>
     <servers />
   </component>
@@ -185,18 +210,18 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1601460395945">
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1601487204007">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1601460395945" />
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1601487204007" />
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601468826624">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1601468826624" />
-    <state x="543" y="275" width="456" height="244" key="NewPhpFileDialog" timestamp="1601459909105">
+    <state x="543" y="275" width="456" height="244" key="NewPhpFileDialog" timestamp="1601485770278">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="543" y="275" width="456" height="244" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1601459909105" />
+    <state x="543" y="275" width="456" height="244" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1601485770278" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1601459513007">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\TeamsRepository;
+use App\Repository\ProjectRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=TeamsRepository::class)
+ * @ORM\Entity(repositoryClass=ProjectRepository::class)
  */
-class Teams
+class Project
 {
     /**
      * @ORM\Id
@@ -23,28 +23,24 @@ class Teams
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $avatar;
+    private $state;
 
     /**
-     * @var Project
-     * @ORM\ManyToMany(targetEntity="\App\Entity\Project")
-     * @ORM\JoinColumn(name="project_id", referencedColumnName="id", nullable=true)
-     */
-
-    private $project_id;
-
-    /**
-     * Teams constructor.
+     * Project constructor.
+     * @param $id
      * @param $title
-     * @param $avatar
+     * @param $state
      */
-    public function __construct($title, $avatar = null)
+
+    public function __construct($id, $title, $state)
     {
+        $this->id = $id;
         $this->title = $title;
-        $this->avatar = $avatar;
+        $this->state = $state;
     }
+
 
     public function getId(): ?int
     {
@@ -63,14 +59,14 @@ class Teams
         return $this;
     }
 
-    public function getAvatar(): ?string
+    public function getState(): ?string
     {
-        return $this->avatar;
+        return $this->state;
     }
 
-    public function setAvatar(string $avatar): self
+    public function setState(string $state): self
     {
-        $this->avatar = $avatar;
+        $this->state = $state;
 
         return $this;
     }
