@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5525173-072a-4f2b-a893-c84c77bbb863" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Form/TeamForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Home/BlockDelete.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Teams.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Teams.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/home.html.twig" afterDir="false" />
     </list>
@@ -151,6 +154,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Form" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -159,7 +167,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601454541696</updated>
-      <workItem from="1601454545674" duration="2272000" />
+      <workItem from="1601454545674" duration="6875000" />
     </task>
     <servers />
   </component>
@@ -178,9 +186,21 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="543" y="275" width="456" height="244" key="NewPhpFileDialog" timestamp="1601457273699">
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1601460395945">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="543" y="275" width="456" height="244" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1601457273699" />
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1601460395945" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601458611630">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1601458611630" />
+    <state x="543" y="275" width="456" height="244" key="NewPhpFileDialog" timestamp="1601459909105">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="543" y="275" width="456" height="244" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1601459909105" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1601459513007">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.0.1440.900@0.0.1440.900" timestamp="1601459513007" />
   </component>
 </project>

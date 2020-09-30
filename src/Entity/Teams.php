@@ -27,6 +27,17 @@ class Teams
      */
     private $avatar;
 
+    /**
+     * Teams constructor.
+     * @param $title
+     * @param $avatar
+     */
+    public function __construct($title, $avatar = null)
+    {
+        $this->title = $title;
+        $this->avatar = $avatar;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
