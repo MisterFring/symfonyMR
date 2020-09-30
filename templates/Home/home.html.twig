@@ -4,24 +4,15 @@
     <meta charset="utf-8">
 </head>
 <body>
--------------------------------------- <br /><br />
+----------------------  Form   --------------------- <br /><br />
 
-{{ form_start(formTeam) }}
-<button type="submit" class="btn btn-primary">Ajouter une équipe</button>
-{{ form_end(formTeam) }}
+{% block body %}{% endblock %}
 
 <br /><br />
 
---------------------------------------
+----------------------------------------------------
 
-{% for team in teams %}
-    <li>
-        {{ team.title }} ------------
-        {% if (team.avatar != null) %}
-            <img src="{{ team.avatar }}">
-        {% endif %}
-    </li>
-{% endfor %}
+{% block list %}{% endblock %}
 
 </body>
 </html>

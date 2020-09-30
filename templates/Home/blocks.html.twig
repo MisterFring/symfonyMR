@@ -1,0 +1,27 @@
+{% extends "Home/home.html.twig" %}
+
+{% block body %}
+
+    {{ form_start(formTeam) }}
+    <button type="submit" class="btn btn-primary">Ajouter une équipe</button>
+    {{ form_end(formTeam) }}
+
+{% endblock %}
+
+{% block list %}
+    {% for team in teams %}
+        <li>
+            {{ team.title }} ------------
+            {% if (team.avatar != null) %}
+                <img src="{{ team.avatar }}">
+            {% endif %}
+            ----------
+            <a href="{{ path('delete_team', {'id' : team.id}) }}">
+                <button type="submit" >Delete</button>
+            </a>
+            <a href="{{ path('modify_team', {'id' : team.id}) }}">
+                <button type="submit" >Modify</button>
+            </a>
+        </li>
+    {% endfor %}
+{% endblock %}

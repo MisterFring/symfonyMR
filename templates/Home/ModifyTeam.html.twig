@@ -1,0 +1,9 @@
+{% extends "Home/home.html.twig" %}
+
+{% block body %}
+    Old name : {{ teams.title }}
+    {{ form_start(formTeam) }}
+    <button type="submit" class="btn btn-primary">Modify your team</button>
+    {{ form_end(formTeam) }}
+
+{% endblock %}
