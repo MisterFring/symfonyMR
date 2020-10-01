@@ -4,14 +4,22 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 zeichen32_git_lab_api:
     clients:
         firstclient:
             token: HNtbdHhikjxvHZqzeN-4
+<<<<<<< HEAD
             url: https://gitlab.com/
             auth_method: http_token
 
+=======
+            url: https://gitlab.com
+            auth_method: http_token
+>>>>>>> master
 services:
     # default configuration for services in *this* file
     _defaults:
