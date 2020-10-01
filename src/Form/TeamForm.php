@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Teams;
+use App\Entity\Team;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -32,7 +32,7 @@ class TeamForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Teams::class,
+            'data_class' => Team::class,
         ]);
     }
 }

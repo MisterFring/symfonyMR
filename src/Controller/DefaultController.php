@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Controller;
-use App\Entity\Teams;
+use App\Entity\Team;
 use App\Form\TeamForm;
-use App\Repository\TeamsRepository;
-use Container1r6wboF\getTeamsRepositoryService;
+use App\Repository\TeamRepository;
+//use Container1r6wboF\getTeamsRepositoryService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -35,17 +36,17 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @param Request $request
      * @return Response
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
-     * @var TeamsRepository $em
      * @Route ("/home", name="home")
      */
 
     public function index(Request $request)
     {
-        $team = new Teams('','');
+        $team = new Team('','');
 
         $form = $this->createForm(TeamForm::class, $team);
         $form->handleRequest($request);
@@ -56,7 +57,7 @@ class DefaultController extends AbstractController
         }
 
 
-        $em = $this->entityManager->getRepository(Teams::class);
+        $em = $this->entityManager->getRepository(Team::class);
         $response = $em->findAll();
 
         $display = $this->twig->render('Home/blocks.html.twig', [
@@ -69,13 +70,14 @@ class DefaultController extends AbstractController
 
     /**
      * @param int $id
-     * @var TeamsRepository $em
+     * @return RedirectResponse
+     * @var TeamRepository $em
      * @Route ("/delete/{id}", name="delete_team")
      */
 
     public function delete(int $id){
 
-        $em = $this->entityManager->getRepository(Teams::class);
+        $em = $this->entityManager->getRepository(Team::class);
         $product = $em->findOneById($id);
         $this->entityManager->remove($product);
         $this->entityManager->flush();
@@ -92,7 +94,7 @@ class DefaultController extends AbstractController
      * @Route ("/modify/{id}", name="modify_team")
      */
     public function modify(int $id, Request $request){
-        $em = $this->entityManager->getRepository(Teams::class);
+        $em = $this->entityManager->getRepository(Team::class);
         $team = $em->findOneById($id);
 
 
@@ -119,11 +121,12 @@ class DefaultController extends AbstractController
     /**
      * @param int $id
      * @Route ("/Team-{id}", name="team_sheet")
+     * @return Response
      */
 
     public function teamSheet(int $id){
 
-        $em = $this->entityManager->getRepository(Teams::class);
+        $em = $this->entityManager->getRepository(Team::class);
         $team = $em->findOneById($id);
 
         $display = $this->twig->render('Home/team.html.twig', [
