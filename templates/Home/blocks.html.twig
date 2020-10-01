@@ -1,6 +1,8 @@
 {% extends "Home/home.html.twig" %}
 
+
 {% block form %}
+    {% if formTeam is defined %}
     <div style="text-align: center">
         ----------------------  Form   ---------------------
         <br /><br />
@@ -30,9 +32,11 @@
         <br /><br />
         ----------------------------------------------------
     </div>
+    {% endif %}
 {% endblock %}
 
 {% block list %}
+    {% if teams is defined %}
     <div style="
         display: flex;
 	    text-align: center;
@@ -60,6 +64,28 @@
             </div>
     {% endfor %}
     </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block ProjectsList %}
+    {% if projects is defined %}
+        <h2>Projects</h2>
+    <div style="
+        display: flex;
+	    text-align: center;
+	    flex-wrap: wrap;"
+    >
+        {% for project in projects %}
+
+            <div style="flex-basis: 20%;">
+
+                    <h2>{{ project.name_with_namespace }}</h2>
+
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 {% endblock %}
 
 {% block sheet %}

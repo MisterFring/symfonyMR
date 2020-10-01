@@ -35,6 +35,10 @@ class DatabaseService extends AbstractController
         return $this->getData()->findAll();
     }
 
+    /**
+     * @param int $id
+     * @return Team
+     */
     public function getOneById(int $id){
         return $this->getData()->findOneById($id);
     }

@@ -20,12 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5525173-072a-4f2b-a893-c84c77bbb863" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Service/DatabaseService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/GitlabService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfonyMR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfonyMR.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GitlabController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GitlabController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/DatabaseService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/DatabaseService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/GitlabService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/GitlabService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Home/blocks.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/blocks.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,10 +213,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1601544173244" />
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601549651080">
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601560354769">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1601549651080" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1601560354769" />
     <state x="543" y="275" width="456" height="244" key="NewPhpFileDialog" timestamp="1601546978793">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -218,5 +225,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="600" height="428" key="javadoc.popup/0.0.1440.900@0.0.1440.900" timestamp="1601459513007" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1601586959692">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1601586959692" />
   </component>
 </project>

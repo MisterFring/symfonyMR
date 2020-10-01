@@ -65,4 +65,24 @@ class GitlabService extends AbstractController
         dump($arrayOfTeamId);die;
 
     }
+
+    /**
+     * @param int $id
+     */
+    public function getProjectInfoById(int $id)
+    {
+        $issues = $this->client->projects()->all(['id' => $id]);
+        dump($issues);die;
+
+    }
+
+    /**
+     *
+     */
+    public function getAllProjects()
+    {
+        $issues = $this->client->projects()->all(['owned' => true]);
+        return $issues;
+
+    }
 }

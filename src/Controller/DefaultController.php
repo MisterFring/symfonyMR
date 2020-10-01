@@ -8,10 +8,14 @@ use App\Service\DatabaseService;
 use App\Repository\TeamRepository;
 //use Container1r6wboF\getTeamsRepositoryService;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
@@ -29,18 +33,24 @@ class DefaultController extends AbstractController
      * @var DatabaseService
      */
     private $dbService;
+    /**
+     * @var Email
+     */
+    private $mail;
 
     /**
      * DefaultController constructor.
      * @param Environment $twig
      * @param EntityManagerInterface $entityManager
      * @param DatabaseService $dbService
+     * @param MailerInterface $mail
      */
-    public function __construct(Environment $twig, EntityManagerInterface $entityManager, DatabaseService $dbService)
+    public function __construct(Environment $twig, EntityManagerInterface $entityManager, DatabaseService $dbService, MailerInterface $mail)
     {
         $this->entityManager = $entityManager;
         $this->twig = $twig;
         $this->dbService = $dbService;
+        $this->mail = $mail;
     }
 
     /**
@@ -77,7 +87,6 @@ class DefaultController extends AbstractController
     /**
      * @param int $id
      * @return RedirectResponse
-     * @var TeamRepository $em
      * @Route ("/delete/{id}", name="delete_team")
      */
 
@@ -106,6 +115,7 @@ class DefaultController extends AbstractController
         $team = $this->dbService->getOneById($id);
 
         // Aimerais mettre l'ancien nom en placeholder de l'input
+
         $form = $this->createForm(TeamForm::class, $team);
         $form->handleRequest($request);
 
@@ -126,27 +136,24 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @param int $id
-     * @var Project $item
-     * @Route ("/Team-{id}", name="team_sheet")
-     * @return Response
+     * @Route ("/mail", name="mail")
+     * @throws TransportExceptionInterface
      */
+    public function mail(){
 
-    public function teamSheet(int $id){
+        $email = (new Email())
+            ->from('hello@example.com')
+            ->to('pierre.decrock@gmail.com')
+            //->priority(Email::PRIORITY_HIGH)
+            ->subject('Symfony Mailer!')
+            ->text('Sending emails is fun again!')
+            ->html('<p>Welcome to Symfony</p>');
 
-        $team = $this->dbService->getOneById($id);
-        /** @var Project $item */
-        foreach ($team->getProjectId() as $item) {
-            dump($item->getIdGitlab());
-        }
-        die;
-
-        $display = $this->twig->render('Home/team.html.twig', [
-            'team' => $team
-        ]);
-        return new Response($display);
-
+        $this->mail->send($email);
+        return $this->redirectToRoute('home');
     }
+
+
 
 
 }
