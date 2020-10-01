@@ -5,22 +5,23 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Gitlab\Client;
+use App\Service\GitlabService;
 
 
 class GitlabController extends AbstractController
 {
     /**
-     * @var Client
+     * @var GitlabService
      */
-    private $client;
+    private $service;
 
     /**
      * GitlabController constructor.
-     * @param Client $client
+     * @param GitlabService $service
      */
-    public function __construct(Client $client)
+    public function __construct(GitlabService $service)
     {
-        $this->client = $client;
+        $this->service = $service;
     }
 
     /**
@@ -28,8 +29,14 @@ class GitlabController extends AbstractController
      */
     public function index()
     {
-        $issues = $this->client->projects()->all(['owned' => true]);
+        //$issues = $this->client->projects()->all(['owned' => true]);
 
-        dump($issues);die;
+        $response = $this->service->index();
+
+        dump($response);die;
+    }
+
+    public function listProjects(){
+
     }
 }

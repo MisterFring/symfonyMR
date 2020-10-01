@@ -22,24 +22,23 @@ class Project
      */
     private $title;
 
+
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
-    private $state;
+    private $id_gitlab;
 
     /**
      * Project constructor.
-     * @param $id
      * @param $title
-     * @param $state
+     * @param $id_gitlab
      */
-
-    public function __construct($id, $title, $state)
+    public function __construct($title, $id_gitlab)
     {
-        $this->id = $id;
         $this->title = $title;
-        $this->state = $state;
+        $this->id_gitlab = $id_gitlab;
     }
+
 
 
     public function getId(): ?int
@@ -59,14 +58,15 @@ class Project
         return $this;
     }
 
-    public function getState(): ?string
+
+    public function getIdGitlab(): ?int
     {
-        return $this->state;
+        return $this->id_gitlab;
     }
 
-    public function setState(string $state): self
+    public function setIdGitlab(int $id_gitlab): self
     {
-        $this->state = $state;
+        $this->id_gitlab = $id_gitlab;
 
         return $this;
     }

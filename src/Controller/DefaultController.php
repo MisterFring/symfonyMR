@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Controller;
+use App\Entity\Project;
 use App\Entity\Team;
 use App\Form\TeamForm;
+use App\Service\DatabaseService;
 use App\Repository\TeamRepository;
 //use Container1r6wboF\getTeamsRepositoryService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,16 +25,22 @@ class DefaultController extends AbstractController
      * @var EntityManagerInterface
      */
     private $entityManager;
+    /**
+     * @var DatabaseService
+     */
+    private $dbService;
 
     /**
      * DefaultController constructor.
      * @param Environment $twig
      * @param EntityManagerInterface $entityManager
+     * @param DatabaseService $dbService
      */
-    public function __construct(Environment $twig, EntityManagerInterface $entityManager)
+    public function __construct(Environment $twig, EntityManagerInterface $entityManager, DatabaseService $dbService)
     {
         $this->entityManager = $entityManager;
         $this->twig = $twig;
+        $this->dbService = $dbService;
     }
 
     /**
@@ -56,9 +64,7 @@ class DefaultController extends AbstractController
             $this->entityManager->flush($team);
         }
 
-
-        $em = $this->entityManager->getRepository(Team::class);
-        $response = $em->findAll();
+        $response = $this->dbService->getAll();
 
         $display = $this->twig->render('Home/blocks.html.twig', [
             'formTeam' => $form->createView(),
@@ -77,10 +83,12 @@ class DefaultController extends AbstractController
 
     public function delete(int $id){
 
-        $em = $this->entityManager->getRepository(Team::class);
-        $product = $em->findOneById($id);
+
+        $product = $this->dbService->getOneById($id);
+
         $this->entityManager->remove($product);
         $this->entityManager->flush();
+
         return $this->redirectToRoute('home');
     }
 
@@ -94,9 +102,8 @@ class DefaultController extends AbstractController
      * @Route ("/modify/{id}", name="modify_team")
      */
     public function modify(int $id, Request $request){
-        $em = $this->entityManager->getRepository(Team::class);
-        $team = $em->findOneById($id);
 
+        $team = $this->dbService->getOneById($id);
 
         // Aimerais mettre l'ancien nom en placeholder de l'input
         $form = $this->createForm(TeamForm::class, $team);
@@ -120,20 +127,24 @@ class DefaultController extends AbstractController
 
     /**
      * @param int $id
+     * @var Project $item
      * @Route ("/Team-{id}", name="team_sheet")
      * @return Response
      */
 
     public function teamSheet(int $id){
 
-        $em = $this->entityManager->getRepository(Team::class);
-        $team = $em->findOneById($id);
+        $team = $this->dbService->getOneById($id);
+        /** @var Project $item */
+        foreach ($team->getProjectId() as $item) {
+            dump($item->getIdGitlab());
+        }
+        die;
 
         $display = $this->twig->render('Home/team.html.twig', [
             'team' => $team
         ]);
         return new Response($display);
-
 
     }
 
