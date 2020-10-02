@@ -9,14 +9,16 @@
 
         <h1>{{ team.title }}</h1>
         {% for mrProject in arrayOfMR %}
-            -------------------------<br />
+
             {% for mr in mrProject  %}
 
-            Project : {{ projects[mr.project_id].name }}<br />
+                <h4>Project : {{ projects[mr.project_id].name }}</h4>
+                -------------------------<br />
+
                 Name of the MR : {{ mr.title }}<br />
                 State of the MR : {{ mr.state }}<br />
-                Votes + : {{ mr.upvotes }}<br />
-                Votes - : {{ mr.downvotes }}
+                <span style="color: green">Votes + : {{ mr.upvotes }}</span><br />
+                <span style="color: red">Votes - : {{ mr.downvotes }}</span>
 
                 <br />
             {% endfor %}

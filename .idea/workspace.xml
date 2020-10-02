@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e5525173-072a-4f2b-a893-c84c77bbb863" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GitlabController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GitlabController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Home/team.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/team.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
