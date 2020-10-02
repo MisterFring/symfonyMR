@@ -71,8 +71,23 @@ class GitlabService extends AbstractController
      */
     public function getProjectInfoById(int $id)
     {
-        $issues = $this->client->projects()->all(['id' => $id]);
-        dump($issues);die;
+        $arrayOfInfo = [];
+
+        $issues = $this->client->projects()->all(['owned' => true]);
+        //$response =  $this->client->mergeRequests();
+        //dump($response);die;
+        /** @var Project $item */
+        foreach ($issues as $item){
+            $arrayTMP = [];
+            if ($item['id'] == $id){
+
+                array_push($arrayTMP, $item['name']);
+                array_push($arrayTMP, $item['created_at']);
+                array_push($arrayTMP, $item['web_url']);
+                array_push($arrayOfInfo, $arrayTMP);
+            }
+        }
+        return $arrayOfInfo;
 
     }
 
@@ -81,8 +96,6 @@ class GitlabService extends AbstractController
      */
     public function getAllProjects()
     {
-        $issues = $this->client->projects()->all(['owned' => true]);
-        return $issues;
-
+        return $this->client->projects()->all(['owned' => true]);
     }
 }

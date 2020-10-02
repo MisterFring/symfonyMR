@@ -65,9 +65,28 @@ class GitlabController extends AbstractController
 
         /** @var Team $team */
         $team = $this->DbService->getOneById($id);
-        /** @var Project $proj */
-        $proj = $team->getProjectId();
-        dump($proj);die;
+        $projects = $team->getProjectId();
+
+
+        $arrayOfGitlabId = [];
+        foreach ($projects as $project){
+            array_push($arrayOfGitlabId, $project->getIdGitlab());
+        }
+        // dump($arrayOfGitlabId);die;
+
+        $arrayOfInfo = [];
+        foreach ($arrayOfGitlabId as $id){
+            array_push($arrayOfInfo, $this->service->getProjectInfoById($id));
+        }
+        dump($arrayOfInfo);
+
+
+
+        // Have to find how put associate project with their team
+            //** @var Project $proj */
+            //$proj = $team->getProjectId();
+        // -------------------------------------------------------
+
         $display = $this->twig->render('Home/team.html.twig', [
             'team' => $team
         ]);
@@ -89,17 +108,18 @@ class GitlabController extends AbstractController
         }
         */
         $arrayOfProjects = $this->service->getAllProjects();
-        //dump($arrayOfProjects);die;
-        $myArray =[];
-        /** @var Project $proj */
-        foreach ($arrayOfProjects as $toto){
 
+
+        $myArray =[];
+        /*/** @var Project $proj */
+        /*foreach ($arrayOfProjects as $toto){
+            dump($toto['']);die;
             $proj = new Project($toto['name'], $toto['id']);
             $test = $proj->getId();
             dump($test);die;
 
         }
-        dump($myArray);die;
+        //dump($myArray);die;*/
         $display = $this->twig->render('Home/blocks.html.twig', [
             'projects' => $arrayOfProjects
         ]);
