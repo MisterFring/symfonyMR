@@ -43,8 +43,21 @@ class DatabaseService extends AbstractController
         return $this->getData()->findOneById($id);
     }
 
+    public function getDataProject(){
+        return $this->entityManager->getRepository(Project::class);
+    }
+
+    public function getOneProject(int $id){
+        return $this->getDataProject()->findOneBy(['id_gitlab' => $id]);
+    }
+
     public function persistFlushProject(Project $project){
         $this->entityManager->persist($project);
+        $this->entityManager->flush();
+    }
+
+    public function persistFlushTeam(Team $team){
+        $this->entityManager->persist($team);
         $this->entityManager->flush();
     }
 }

@@ -67,7 +67,7 @@ class GitlabController extends AbstractController
         $team = $this->DbService->getOneById($id);
         $projects = $team->getProjectId();
 
-
+// find all gitlab ids of projects for this team
         $arrayOfGitlabId = [];
         foreach ($projects as $project){
             array_push($arrayOfGitlabId, $project->getIdGitlab());
@@ -75,20 +75,23 @@ class GitlabController extends AbstractController
         // dump($arrayOfGitlabId);die;
 
         $arrayOfInfo = [];
+        $arrayOfMR = [];
         foreach ($arrayOfGitlabId as $id){
-            array_push($arrayOfInfo, $this->service->getProjectInfoById($id));
+            //array_push($arrayOfInfo, $this->service->getProjectInfoById($id));
+            $arrayOfInfo[$id] = $this->service->getProjectInfoById($id);
+            array_push($arrayOfMR, $this->service->getMergeRequestById($id));
         }
-        dump($arrayOfInfo);
-
-
-
+        //dump($arrayOfInfo);die;
         // Have to find how put associate project with their team
             //** @var Project $proj */
             //$proj = $team->getProjectId();
         // -------------------------------------------------------
 
         $display = $this->twig->render('Home/team.html.twig', [
-            'team' => $team
+            'team' => $team,
+            'projects' => $arrayOfInfo,
+            'arrayOfMR' => $arrayOfMR
+
         ]);
         return new Response($display);
     }

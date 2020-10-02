@@ -6,7 +6,16 @@
         <a href="{{ path('home') }}">
             <button type="submit">Back to Home</button>
         </a>
+
         <h1>{{ team.title }}</h1>
+        {% for mrProject in arrayOfMR %}
+            {% for mr in mrProject  %}
+
+            Projet : {{ projects[mr.project_id].name }}
+                Nom de la mr : {{ mr.title }}
+
+            {% endfor %}
+        {% endfor %}
     </div>
 
 {% endblock %}

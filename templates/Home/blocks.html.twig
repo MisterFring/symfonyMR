@@ -22,15 +22,30 @@
                 {% endif %}
             </button>
 
-            {% if modify is defined%}
-                <p><img src="{{ teams.avatar }}"></p>
-            {% endif %}
         {{ form_end(formTeam) }}
-
-
 
         <br /><br />
         ----------------------------------------------------
+
+        {% if modify is defined%}
+            <p><img src="{{ teams.avatar }}"></p>
+
+
+            ------------ Projects ---------<br />
+            {% for item in ListOfProjects %}<br/>
+                Project ID in Gitlab : {{ item.id }}<br />
+                Project name : {{ item.name }}<br />
+                <a href="{{ path('remove', {'team_id' : teams.id, 'project_id_gitlab' : item.id})}}">
+                    <button type="button">dissociate this project from this team</button>
+                </a>
+                <br />
+                <a href="{{ path('associate', {'team_id' : teams.id, 'project_id_gitlab' : item.id})}}">
+                    <button type="button">Associate this project from this team</button>
+                </a>
+                <br />
+            {% endfor %}
+            ----------------------------------
+        {% endif %}
     </div>
     {% endif %}
 {% endblock %}

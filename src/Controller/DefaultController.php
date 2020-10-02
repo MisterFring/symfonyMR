@@ -7,6 +7,7 @@ use App\Form\TeamForm;
 use App\Service\DatabaseService;
 use App\Repository\TeamRepository;
 //use Container1r6wboF\getTeamsRepositoryService;
+use App\Service\GitlabService;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,6 +38,10 @@ class DefaultController extends AbstractController
      * @var Email
      */
     private $mail;
+    /**
+     * @var GitlabService
+     */
+    private $glservice;
 
     /**
      * DefaultController constructor.
@@ -44,13 +49,20 @@ class DefaultController extends AbstractController
      * @param EntityManagerInterface $entityManager
      * @param DatabaseService $dbService
      * @param MailerInterface $mail
+     * @param GitlabService $glservice
      */
-    public function __construct(Environment $twig, EntityManagerInterface $entityManager, DatabaseService $dbService, MailerInterface $mail)
+    public function __construct(
+        Environment $twig,
+        EntityManagerInterface $entityManager,
+        DatabaseService $dbService,
+        MailerInterface $mail,
+        GitlabService $glservice)
     {
         $this->entityManager = $entityManager;
         $this->twig = $twig;
         $this->dbService = $dbService;
         $this->mail = $mail;
+        $this->glservice = $glservice;
     }
 
     /**
@@ -123,16 +135,71 @@ class DefaultController extends AbstractController
             $this->entityManager->persist($team);
             $this->entityManager->flush($team);
             return $this->redirectToRoute('home');
-
         }
+
+        $arrayOfProjects = $this->glservice->getAllProjects();
+
+        //$projects = $team->getProjectId();
+
+        //$arrayOfGitlabId = [];
+        //foreach ($projects as $project){
+         //   $arrayOfGitlabId[$project->getId()] = $project->getIdGitlab();
+        //}
+        //dump($arrayOfGitlabId);die; donne
+        // array:2 [▼
+        //  3 => 21256859
+        //  5 => 21256849
+        //]
+        /*$arrayOfInfo = [];
+
+        foreach ($arrayOfGitlabId as $id){
+            array_push($arrayOfInfo, $this->glservice->getProjectInfoById($id));
+        }*/
+
 
         $display = $this->twig->render('Home/blocks.html.twig', [
             'formTeam' => $form->createView(),
             'teams' => $team,
-            'modify' => true
+            'modify' => true,
+            'ListOfProjects' => $arrayOfProjects
         ]);
         return new Response($display);
 
+    }
+
+    /**
+     * @param int $team_id
+     * @param int $project_id_gitlab
+     * @Route ("/remove/{team_id}/{project_id_gitlab}", name="remove")
+     * @return RedirectResponse
+     */
+    public function removeLink (int $team_id, int $project_id_gitlab){
+
+        $team = $this->dbService->getOneById($team_id);
+        $project = $this->dbService->getOneProject($project_id_gitlab);
+
+        $test = $team->removeProjectId($project);
+        $this->dbService->persistFlushTeam($test);
+
+        return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @param int $team_id
+     * @param int $project_id_gitlab
+     * @Route ("/associate/{team_id}/{project_id_gitlab}", name="associate")
+     * @return RedirectResponse
+     */
+    public function associate(int $team_id, int $project_id_gitlab){
+        $team = $this->dbService->getOneById($team_id);
+        $project = $this->dbService->getOneProject($project_id_gitlab);
+        if ($project == null){
+            $project = new Project('blabla', $project_id_gitlab);
+        }
+        $team->addProjectId($project);
+        $this->dbService->persistFlushTeam($team);
+
+        return $this->redirectToRoute('home');
     }
 
     /**
